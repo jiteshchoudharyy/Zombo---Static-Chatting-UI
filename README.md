@@ -2,6 +2,7 @@
 It is developed in HTML, CSS &amp; Javascript. It's a non-database chatting user interface and it includes various sections(divisions) in one single webpage. It also consists page navigation mechanism.
 
 It consists of 4 webpages which can be navigated throughout. The webpages are following:
+
 1] Sign In & Sign Up
 - It consits of two buttons i:e; one is for signing up and the second one is to log in. Well it doesn't have any contraints implemented at the back due to no database. So it will accepts any kind of credential inputs.
 - After signing up or signing in you will be directly navigated to the home page of Zombo.
