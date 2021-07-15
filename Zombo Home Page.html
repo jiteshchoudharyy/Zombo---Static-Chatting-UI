@@ -1,0 +1,557 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="Root.css" />
+<link href="Root.js" />
+<title>Zombo</title>
+</head>
+<style>
+#header{background-color:#99CCCC; height:auto; width:100%;}
+#sideopt{background-color:#99CCCC; height:auto; width:100%;}
+#chattinglist{width:100%; background-color:#99FFCC; height:600px;}
+
+body {font-family: "Lato", sans-serif;}
+
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+}
+
+.tablink:hover {
+    background-color: #777;
+}
+
+/* Style the tab content */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 50px;
+    text-align: center;
+}
+
+#homehead {background-color:red;}
+#chathead {background-color:green;}
+#myprofilehead {background-color:blue;}
+#settingshead {background-color:orange;}
+
+/*side hover css coding*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/*home page css coding for slide images*/
+.userfont{font-family:monospace, fantasy;}
+
+#maindiv1{height:auto; width:auto; border-style:solid; margin-left:10px; border-color:#000000;}
+#first{height:auto; width:auto; border-style:ridge; border-color:#000000; margin:5px;}
+#first1{height:auto; width:auto; border-style:ridge; border-color:#000000; margin:5px;}
+#first2{height:auto; width:auto; border-style:ridge; border-color:#000000; margin:5px; background-color:#CCFFCC;}
+#img1{margin:8px; width:785px; margin-left:10px;} 
+#jitesh{margin-left:10px;}
+
+#maindiv2{height:auto; width:auto; border-style:solid; margin-left:10px; border-color:#000000;}
+#second{height:auto; width:auto; border-style:ridge; border-color:#000000; margin:5px;}
+#second1{height:auto; width:auto; border-style:ridge; border-color:#000000; margin:5px;}
+#second2{height:auto; width:auto; border-style:ridge; border-color:#000000; margin:5px; background-color:#CCFFCC;}
+#img2{margin:8px; width:785px; margin-left:10px;} 
+#yogesh{margin-left:10px;}
+
+#maindiv3{height:auto; width:auto; border-style:solid; margin-left:10px; border-color:#000000;}
+#third{height:auto; width:auto; border-style:ridge; border-color:#000000; margin:5px;}
+#third1{height:auto; width:auto; border-style:ridge; border-color:#000000; margin:5px;}
+#third2{height:auto; width:auto; border-style:ridge; border-color:#000000; margin:5px; background-color:#CCFFCC;}
+#akash{margin-left:10px;}
+.mySlides {display:none}
+.w3-left, .w3-right, .w3-badge {cursor:pointer}
+.w3-badge {height:13px;width:13px;padding:0}
+
+#maindiv4{height:auto; width:auto; border-style:solid; margin-left:10px; border-color:#000000;}
+#fourth{height:auto; width:auto; border-style:ridge; border-color:#000000; margin:5px;}
+#fourth1{height:auto; width:auto; border-style:ridge; border-color:#000000; margin:5px;}
+#fourth2{height:auto; width:auto; border-style:ridge; border-color:#000000; margin:5px; background-color:#CCFFCC;}
+#img4{margin:8px; width:785px; margin-left:10px;} 
+#shaby{margin-left:10px;}
+
+.optbut{height:45px; width:160px; background-color:#999999; font-family:Verdana, Arial, Helvetica, sans-serif; font-style:oblique; margin:8px;}
+.usercolor{background-color:#66CCFF;}
+
+/*css coding for toggle in night mode*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/*My profile coding part complete .. begins from here*/
+/*round img coding*/
+.profpic{
+  border-radius: 50%;
+  margin:18px;
+}
+
+#profimg{margin-left:5px;}
+.proftextpara{font-size:30px; font-family:"Agency FB"; text-align:center; color:#000000;}
+
+/*toggle in auto sync*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/*div coding*/
+#profbox{border-style:solid; background-color:#CCCCCC; width:auto; margin-left:100px; margin-right:100px;}
+
+</style>
+<body>
+<div id="header">
+<h1 class="w3-jumbo">&nbsp;&nbsp;Zombo</h1>
+<div id="opt" align="right">
+<p align="right"><span style="font-size:30px;cursor:pointer" onClick="openNav()">&#9776; </span></p>
+</div>
+</div>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onClick="closeNav()">&times;</a>
+  <a href="#">New Group</a>
+  <a href="#">Night Mode</a>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label class="switch">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+  </label>
+  <a href="#">Refresh</a>
+  <a href="#">Add new chat</a>
+</div>
+
+</div>
+</div>
+<button class="tablink" onClick="openCity('homehead', this, 'red')" id="defaultOpen"><h3 class="w1-jumbo">Home</h3></button>
+<button class="tablink" onClick="openCity('chathead', this, 'green')"><h3 class="w1-jumbo">Chat</h3></button>
+<button class="tablink" onClick="openCity('myprofilehead', this, 'blue')"><h3 class="w1-jumbo">My Profile</h3></button>
+<button class="tablink" onClick="openCity('settingshead', this, 'orange')"><h3 class="w1-jumbo">Settings</h3></button>
+
+<div id="homehead" class="tabcontent">
+<br />
+<br />
+<br />
+<div id="maindiv1">
+<div id="first" class="usercolor">
+<h1 id="jitesh" class="userfont"><a href="file:///C:/Users/HP/Documents/Zombo/Files/jitbio.html" target="_blank">Jitesh Choudhary</a></h1>
+</div>
+<div id="first1">
+<img src="file:///D|/My Files/Pictures/Wallpapers/f627d8cb59b3f7495f24b0ed6afa4b3d.jpg" id="img1" align="middle" />
+</div>
+<div id="first2">
+<button class="optbut"><font color="#FFFFFF">Like</font></button>&nbsp;&nbsp;<button class="optbut"><font color="#FFFFFF">Comment</font></button>&nbsp;&nbsp;<button class="optbut"><font color="#FFFFFF">Share</font></button>
+</div>
+</div>
+<br />
+<hr />
+<br />
+
+<div id="maindiv2">
+<div id="second" class="usercolor">
+<h1 id="yogesh" class="userfont"><a href="file:///C:/Users/HP/Documents/Zombo/Files/yogibio.html" target="_blank">Yogesh Joshi</a></h1>
+</div>
+<div id="second1">
+<img src="Android-Wallpapers3.jpg" id="img2" />
+</div>
+<div id="second2">
+<button class="optbut"><font color="#FFFFFF">Like</font></button>&nbsp;&nbsp;<button class="optbut"><font color="#FFFFFF">Comment</font></button>&nbsp;&nbsp;<button class="optbut"><font color="#FFFFFF">Share</font></button>
+</div>
+</div>
+<br />
+<hr />
+<br />
+
+<div id="maindiv3">
+<div id="third" class="usercolor">
+<h1 id="akash" class="userfont"><a href="file:///C:/Users/HP/Documents/Zombo/Files/akashbio.html" target="_blank">Akash Satyedev</a></h1>
+</div>
+<div id="third1">
+<div class="w3-container">
+</div>
+
+<div class="w3-content w3-display-container" style="max-width:800px">
+  <img class="mySlides" src="0e7fd21784771052f1a5dbfe8365ce4a.jpg" style="width:100%">
+  <img class="mySlides" src="20161004221943.jpg" style="width:100%">
+  <img class="mySlides" src="20161004222952.jpg" style="width:100%">
+  <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+    <div class="w3-left w3-hover-text-khaki" onClick="plusDivs(-1)">&#10094;</div>
+    <div class="w3-right w3-hover-text-khaki" onClick="plusDivs(1)">&#10095;</div>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onClick="currentDiv(1)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onClick="currentDiv(2)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onClick="currentDiv(3)"></span>
+  </div>
+</div>
+</div>
+<div id="third2">
+<button class="optbut"><font color="#FFFFFF">Like</font></button>&nbsp;&nbsp;<button class="optbut"><font color="#FFFFFF">Comment</font></button>&nbsp;&nbsp;<button class="optbut"><font color="#FFFFFF">Share</font></button>
+</div>
+</div>
+
+<div id="maindiv4">
+<div id="fourth" class="usercolor">
+<h1 id="shaby" class="userfont"><a href="file:///C:/Users/HP/Documents/Zombo/Files/shabybio.html" target="_blank">Tauseef Feraz</a></h1>
+</div>
+<div id="fourth1">
+<img src="minion-1372347_1920.jpg" id="img4" align="middle" />
+</div>
+<div id="fourth2">
+<button class="optbut"><font color="#FFFFFF">Like</font></button>&nbsp;&nbsp;<button class="optbut"><font color="#FFFFFF">Comment</font></button>&nbsp;&nbsp;<button class="optbut"><font color="#FFFFFF">Share</font></button>
+</div>
+</div>
+
+</div>
+
+<div id="chathead" class="tabcontent">
+<br />
+  <div class="w3-panel">
+  <form method="get" action="file:///C:/Users/HP/Documents/Zombo/Files/akashchat.html">
+  <button class="w3-button w3-block w3-black" type="submit"><h4 align="left">&nbsp;&nbsp;&nbsp;&nbsp;Akash Satyedev</h4></button>
+  </form>
+  </div>
+  <div class="w3-panel">
+  <form method="get" action="file:///C:/Users/HP/Documents/Zombo/Files/shabychat.html">
+  <button class="w3-button w3-block w3-black" type="submit"><h4 align="left">&nbsp;&nbsp;&nbsp;&nbsp;Tauseef Feraz</h4></button>
+  </form>
+  </div>
+  <div class="w3-panel">
+  <form method="get" action="file:///C:/Users/HP/Documents/Zombo/Files/yogichat.html">
+  <button class="w3-button w3-block w3-black" type="submit"><h4 align="left">&nbsp;&nbsp;&nbsp;&nbsp;Yogesh Joshi</h4></button>
+  </form>
+  </div>
+  <div class="w3-panel">
+  <form method="get" action="file:///C:/Users/HP/Documents/Zombo/Files/harshchat.html">
+  <button class="w3-button w3-block w3-black" type="submit"><h4 align="left">&nbsp;&nbsp;&nbsp;&nbsp;Harsh Pratap Singh</h4></button>
+  </form>
+  </div>
+  <div class="w3-panel">
+  <form method="get" action="file:///C:/Users/HP/Documents/Zombo/Files/harishchat.html">
+  <button class="w3-button w3-block w3-black" type="submit"><h4 align="left">&nbsp;&nbsp;&nbsp;&nbsp;Harish Soni</h4></button>
+  </form>
+  </div>
+  <div class="w3-panel">
+  <form method="get" action="file:///C:/Users/HP/Documents/Zombo/Files/arijitchat.html">
+  <button class="w3-button w3-block w3-black" type="submit"><h4 align="left">&nbsp;&nbsp;&nbsp;&nbsp;Arijit Paul</h4></button>
+  </form>
+  </div>
+  <div class="w3-panel">
+  <form method="get" action="file:///C:/Users/HP/Documents/Zombo/Files/swashtikchat.html">
+  <button class="w3-button w3-block w3-black" type="submit"><h4 align="left">&nbsp;&nbsp;&nbsp;&nbsp;Swashtik Sharma</h4></button>
+  </form>
+  </div>
+  <div class="w3-panel">
+  <form method="get" action="file:///C:/Users/HP/Documents/Zombo/Files/sanchitchat.html">
+  <button class="w3-button w3-block w3-black" type="submit"><h4 align="left">&nbsp;&nbsp;&nbsp;&nbsp;Sanchit Shankar</h4></button>
+  </form>
+  </div>
+  <div class="w3-panel">
+  <form method="get" action="file:///C:/Users/HP/Documents/Zombo/Files/rajachat.html">
+  <button class="w3-button w3-block w3-black" type="submit"><h4 align="left">&nbsp;&nbsp;&nbsp;&nbsp;Raja Gopal Lal</h4></button>
+  </form>
+  </div>
+  <div class="w3-panel">
+  <form method="get" action="file:///C:/Users/HP/Documents/Zombo/Files/aryanchat.html">
+  <button class="w3-button w3-block w3-black" type="submit"><h4 align="left">&nbsp;&nbsp;&nbsp;&nbsp;Aryan Singh</h4></button>
+  </form>
+  </div>
+  <div class="w3-panel">
+  <form method="get" action="file:///C:/Users/HP/Documents/Zombo/Files/sumitchat.html">
+  <button class="w3-button w3-block w3-black" type="submit"><h4 align="left">&nbsp;&nbsp;&nbsp;&nbsp;Sumit Kumar</h4></button>
+  </form>
+  </div>
+  <div class="w3-panel">
+  <form method="get" action="file:///C:/Users/HP/Documents/Zombo/Files/nikhilchat.html">
+  <button class="w3-button w3-block w3-black" type="submit"><h4 align="left">&nbsp;&nbsp;&nbsp;&nbsp;Nikhil Bharadawaj</h4></button>
+  </form>
+  </div>
+  <div class="w3-panel">
+  <form method="get" action="file:///C:/Users/HP/Documents/Zombo/Files/rohitchat.html">
+  <button class="w3-button w3-block w3-black" type="submit"><h4 align="left">&nbsp;&nbsp;&nbsp;&nbsp;Rohit Kumar</h4></button>
+  </form>
+  </div>
+  <div class="w3-panel">
+  <form method="get" action="file:///C:/Users/HP/Documents/Zombo/Files/yashchat.html">
+  <button class="w3-button w3-block w3-black" type="submit"><h4 align="left">&nbsp;&nbsp;&nbsp;&nbsp;Yash Tomar</h4></button>
+  </form>
+  </div>
+  <div class="w3-panel">
+  <form method="get" action="file:///C:/Users/HP/Documents/Zombo/Files/rahulchat.html">
+  <button class="w3-button w3-block w3-black" type="submit"><h4 align="left">&nbsp;&nbsp;&nbsp;&nbsp;Rahul Singh</h4></button>
+  </form>
+  </div>
+  <div class="w3-panel">
+  <form method="get" action="file:///C:/Users/HP/Documents/Zombo/Files/ajitchat.html">
+  <button class="w3-button w3-block w3-black" type="submit"><h4 align="left">&nbsp;&nbsp;&nbsp;&nbsp;Ajit Yadav</h4></button>
+  </form>
+  </div>
+  <div class="w3-panel">
+  <form method="get" action="file:///C:/Users/HP/Documents/Zombo/Files/akashrchat.html">
+  <button class="w3-button w3-block w3-black" type="submit"><h4 align="left">&nbsp;&nbsp;&nbsp;&nbsp;Akash Rathore</h4></button>
+  </form>
+  </div>
+</div>
+
+<div id="myprofilehead" class="tabcontent">
+<br />
+<br />
+  <div id="profbox">
+<img src="images.png" id="profimg" class="profpic" alt="Avatar" style="width:200px">
+<p class="proftextpara">First Name :<b> Jitesh</b></p>
+<p class="proftextpara">Last Name :<b> Choudhary</b></p>
+<p class="proftextpara">User Name :<b> jitesh0708</b></p>
+<p class="proftextpara">Password :<b> jitesh12345</b></p>
+<p class="proftextpara">Date Of Birth :<b> 07 August 1998</b></p>
+<p class="proftextpara">Friends &amp; Contacts :<b> 872</b></p>
+<p class="proftextpara">Nationality :<b> Indian</b></p>
+<p class="proftextpara">Joined :<b> October 2017</b></p>
+<p class="proftextpara">Posts :<b> 47</b></p>
+<p class="proftextpara">Blocked Accounts :<b> 0</b></p>
+<p class="proftextpara">Auto Sync :
+&nbsp;&nbsp;&nbsp;&nbsp;<label class="switch">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+</label></p>
+</div>
+</div>
+
+<div id="settingshead" class="tabcontent">
+<br />
+  <div class="w3-panel">
+  <button class="w3-button w3-block w3-black"><h4>Account</h4></button>
+  </div>
+  <div class="w3-panel">
+  <button class="w3-button w3-block w3-black"><h4>Password</h4></button>
+  </div>
+  <div class="w3-panel">
+  <button class="w3-button w3-block w3-black"><h4>Search History</h4></button>
+  </div>
+  <div class="w3-panel">
+  <button class="w3-button w3-block w3-black"><h4>Language</h4></button>
+  </div>
+  <div class="w3-panel">
+  <button class="w3-button w3-block w3-black"><h4>Privacy &amp; Security</h4></button>
+  </div>
+  <div class="w3-panel">
+  <button class="w3-button w3-block w3-black"><h4>Notifications</h4></button>
+  </div>
+  <div class="w3-panel">
+  <button class="w3-button w3-block w3-black"><h4>About</h4></button>
+  </div>
+</div>
+<script>
+function openCity(evt, cityName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
+}
+</script>
+<script>//For Severel divisions
+function openCity(cityName,elmnt,color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(cityName).style.display = "block";
+    elmnt.style.backgroundColor = color;
+
+}
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+<script>//For sidenav
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+<script>//js coding for slide images part(akash)
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+     dots[i].className = dots[i].className.replace(" w3-white", "");
+  }
+  x[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " w3-white";
+}
+</script>
+</body>
+</html>
